@@ -26,3 +26,8 @@ INSERT INTO `mastergamertrivia`.`juegos` (`id`, `nombre`, `descripcion`, `catego
 INSERT INTO `mastergamertrivia`.`juegos` (`id`, `nombre`, `descripcion`, `categoria`) VALUES ('7', 'Counter Strike', 'Juego multijugador de disparos', 'shooter');
 INSERT INTO `mastergamertrivia`.`juegos` (`id`, `nombre`, `descripcion`, `categoria`) VALUES ('8', 'Diablo 3', 'Continuación de la saga de diablo 3', 'hack and slash');
 INSERT INTO `mastergamertrivia`.`juegos` (`id`, `nombre`, `descripcion`, `categoria`) VALUES ('9', 'Minecraft', 'Juego de construcción', 'construccion');
+
+
+-- Consulta para generar Randoms desde MySQL
+-- SELECT id, juegoPertenece, FLOOR(RAND() * (SELECT COUNT(*) FROM pregunta)) AS 'random_number' FROM pregunta;
+-- Falta trabajarla no funciona del todo bien;
