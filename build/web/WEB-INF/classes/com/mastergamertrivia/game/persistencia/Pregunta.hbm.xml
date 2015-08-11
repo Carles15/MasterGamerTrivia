@@ -15,6 +15,7 @@
         <property name="respuestaFalsa2"/>
         <property name="respuestaFalsa3"/>
         <property name="respuestaCorrecta"/>
+        <property name="juegoPertenece"/>
     </class>
 
 </hibernate-mapping>

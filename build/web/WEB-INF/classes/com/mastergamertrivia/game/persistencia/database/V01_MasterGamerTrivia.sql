@@ -8,6 +8,14 @@ INSERT INTO pregunta VALUES (null,'¿Como se llama el shooter de Blizzard?','Hip
 INSERT INTO pregunta VALUES (null,'¿Líder de los renegados?','Thrall','Anduin','Garrosh','Sylvanas');
 INSERT INTO pregunta VALUES (null,'¿Líder de los trolls lanza negra?','Thrall','Sylvanas','Rexxar','Voljin');
 
+UPDATE `mastergamertrivia`.`pregunta` SET `juegoPertenece`='1' WHERE `id`='1';
+UPDATE `mastergamertrivia`.`pregunta` SET `juegoPertenece`='1' WHERE `id`='2';
+UPDATE `mastergamertrivia`.`pregunta` SET `juegoPertenece`='1' WHERE `id`='3';
+UPDATE `mastergamertrivia`.`pregunta` SET `juegoPertenece`='3' WHERE `id`='4';
+UPDATE `mastergamertrivia`.`pregunta` SET `juegoPertenece`='8' WHERE `id`='5';
+UPDATE `mastergamertrivia`.`pregunta` SET `juegoPertenece`='4' WHERE `id`='6';
+UPDATE `mastergamertrivia`.`pregunta` SET `juegoPertenece`='1' WHERE `id`='7';
+
 -- Tabla juegos
 INSERT INTO `mastergamertrivia`.`juegos` (`id`, `nombre`, `descripcion`, `categoria`) VALUES ('1', 'World of warcraft', 'Juego de rol ambientando en el mundo de Warcraft', 'mmorpg');
 INSERT INTO `mastergamertrivia`.`juegos` (`id`, `nombre`, `descripcion`, `categoria`) VALUES ('2', 'Hearthstone', 'Juego de cartas ambientado en el mundo de warcraft', 'cartas');
