@@ -13,5 +13,7 @@
     <mapping class="com.mastergamertrivia.game.dominio.Pregunta"/>
     <mapping resource="com/mastergamertrivia/game/persistencia/Juego.hbm.xml"/>
     <mapping class="com.mastergamertrivia.game.dominio.Juego"/>
+    <mapping resource="com/mastergamertrivia/game/persistencia/Dificultad.hbm.xml"/>
+    <mapping class="com.mastergamertrivia.game.dominio.Dificultad"/>
   </session-factory>
 </hibernate-configuration>

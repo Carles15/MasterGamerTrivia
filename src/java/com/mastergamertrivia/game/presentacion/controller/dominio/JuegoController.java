@@ -91,8 +91,8 @@ public class JuegoController {
     public void findAll(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse){
         httpServletResponse.setContentType("application/json");
         try {
-            List<Juego> preguntas = juegoDAO.findAll();
-            httpServletResponse.getWriter().println(jsonConverter.toJson(preguntas));
+            List<Juego> juegos = juegoDAO.findAll();
+            httpServletResponse.getWriter().println(jsonConverter.toJson(juegos));
             httpServletResponse.setStatus(HttpServletResponse.SC_OK);
         } catch (Exception ex) {
             try {

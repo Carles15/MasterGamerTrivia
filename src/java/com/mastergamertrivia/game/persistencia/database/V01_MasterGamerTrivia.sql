@@ -1,20 +1,12 @@
 -- Poblacion de la Base de Datos
 -- Tabla preguntas
-INSERT INTO pregunta VALUES (null,'¿¿Cómo se llamaba el caballo de Arthas en Warcraft 3?','Bolwar','Terenas','Luz','Invencible');
-INSERT INTO pregunta VALUES (null,'¿Como se llama el arma de Thrall?','Frostmourne','Crematoria','Ventormenta','Martillo maldito');
-INSERT INTO pregunta VALUES (null,'¿Cúales son las sagas de Heroes of the storm?','World of warcraft','Starcraft','Diablo 3','Todas son correctas');
-INSERT INTO pregunta VALUES (null,'¿De que raza son los héroes de Diablo 3?','Arcángeles','Dephalem','Tephalem','Nephalem');
-INSERT INTO pregunta VALUES (null,'¿Como se llama el shooter de Blizzard?','Hiperwatch','Overcraft','Overseen','Overwatch');
-INSERT INTO pregunta VALUES (null,'¿Líder de los renegados?','Thrall','Anduin','Garrosh','Sylvanas');
-INSERT INTO pregunta VALUES (null,'¿Líder de los trolls lanza negra?','Thrall','Sylvanas','Rexxar','Voljin');
-
-UPDATE `mastergamertrivia`.`pregunta` SET `juegoPertenece`='1' WHERE `id`='1';
-UPDATE `mastergamertrivia`.`pregunta` SET `juegoPertenece`='1' WHERE `id`='2';
-UPDATE `mastergamertrivia`.`pregunta` SET `juegoPertenece`='1' WHERE `id`='3';
-UPDATE `mastergamertrivia`.`pregunta` SET `juegoPertenece`='3' WHERE `id`='4';
-UPDATE `mastergamertrivia`.`pregunta` SET `juegoPertenece`='8' WHERE `id`='5';
-UPDATE `mastergamertrivia`.`pregunta` SET `juegoPertenece`='4' WHERE `id`='6';
-UPDATE `mastergamertrivia`.`pregunta` SET `juegoPertenece`='1' WHERE `id`='7';
+INSERT INTO pregunta VALUES (null,'¿¿Cómo se llamaba el caballo de Arthas en Warcraft 3?','Bolwar','Terenas','Luz','Invencible',1,4);
+INSERT INTO pregunta VALUES (null,'¿Como se llama el arma de Thrall?','Frostmourne','Crematoria','Ventormenta','Martillo maldito',1,2);
+INSERT INTO pregunta VALUES (null,'¿Cúales son las sagas de Heroes of the storm?','World of warcraft','Starcraft','Diablo 3','Todas son correctas',1,1);
+INSERT INTO pregunta VALUES (null,'¿De que raza son los héroes de Diablo 3?','Arcángeles','Dephalem','Tephalem','Nephalem',3,2);
+INSERT INTO pregunta VALUES (null,'¿Como se llama el shooter de Blizzard?','Hiperwatch','Overcraft','Overseen','Overwatch',8,1);
+INSERT INTO pregunta VALUES (null,'¿Líder de los renegados?','Thrall','Anduin','Garrosh','Sylvanas',4,2);
+INSERT INTO pregunta VALUES (null,'¿Líder de los trolls lanza negra?','Thrall','Sylvanas','Rexxar','Voljin',1,2);
 
 -- Tabla juegos
 INSERT INTO `mastergamertrivia`.`juegos` (`id`, `nombre`, `descripcion`, `categoria`) VALUES ('1', 'World of warcraft', 'Juego de rol ambientando en el mundo de Warcraft', 'mmorpg');
@@ -26,8 +18,20 @@ INSERT INTO `mastergamertrivia`.`juegos` (`id`, `nombre`, `descripcion`, `catego
 INSERT INTO `mastergamertrivia`.`juegos` (`id`, `nombre`, `descripcion`, `categoria`) VALUES ('7', 'Counter Strike', 'Juego multijugador de disparos', 'shooter');
 INSERT INTO `mastergamertrivia`.`juegos` (`id`, `nombre`, `descripcion`, `categoria`) VALUES ('8', 'Diablo 3', 'Continuación de la saga de diablo 3', 'hack and slash');
 INSERT INTO `mastergamertrivia`.`juegos` (`id`, `nombre`, `descripcion`, `categoria`) VALUES ('9', 'Minecraft', 'Juego de construcción', 'construccion');
+INSERT INTO `mastergamertrivia`.`juego` (`id`, `nombre`, `descripcion`, `categoria`) VALUES ('10', 'DarkSouls', 'Prepare to Die Edition', 'rpg');
+INSERT INTO `mastergamertrivia`.`juego` (`id`, `nombre`, `descripcion`, `categoria`) VALUES ('11', 'Final Fantasy', 'Juego por turnos', 'rpg');
+INSERT INTO `mastergamertrivia`.`juego` (`id`, `nombre`, `descripcion`, `categoria`) VALUES ('12', 'Pokémon', 'Juego de colección de pokémons', 'simulación');
+INSERT INTO `mastergamertrivia`.`juego` (`id`, `nombre`, `descripcion`, `categoria`) VALUES ('13', 'The Legend of Zelda', 'Juego de ambientación fantastica', 'rpg');
+
 
 
 -- Consulta para generar Randoms desde MySQL
 -- SELECT id, juegoPertenece, FLOOR(RAND() * (SELECT COUNT(*) FROM pregunta)) AS 'random_number' FROM pregunta;
 -- Falta trabajarla no funciona del todo bien;
+
+
+-- Tabla dificultades
+INSERT INTO `mastergamertrivia`.`dificultad` (`id`, `nombre`, `descripcion`) VALUES ('1', 'noob', 'fácil');
+INSERT INTO `mastergamertrivia`.`dificultad` (`id`, `nombre`, `descripcion`) VALUES ('2', 'experto', 'normal');
+INSERT INTO `mastergamertrivia`.`dificultad` (`id`, `nombre`, `descripcion`) VALUES ('3', 'pro', 'dificil');
+INSERT INTO `mastergamertrivia`.`dificultad` (`id`, `nombre`, `descripcion`) VALUES ('4', 'gamer', 'imposible');

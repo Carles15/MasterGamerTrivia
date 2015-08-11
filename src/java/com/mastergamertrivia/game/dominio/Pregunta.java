@@ -8,11 +8,12 @@ public class Pregunta {
     private String respuestaFalsa3;
     private String respuestaCorrecta;
     private int juegoPertenece;
+    private int idDificultad;
 
     public Pregunta() {
     }
 
-    public Pregunta(int id, String enunciado, String respuestaFalsa1, String respuestaFalsa2, String respuestaFalsa3, String respuestaCorrecta, int juegoPertenece) {
+    public Pregunta(int id, String enunciado, String respuestaFalsa1, String respuestaFalsa2, String respuestaFalsa3, String respuestaCorrecta, int juegoPertenece, int idDificultad) {
         this.id = id;
         this.enunciado = enunciado;
         this.respuestaFalsa1 = respuestaFalsa1;
@@ -20,6 +21,7 @@ public class Pregunta {
         this.respuestaFalsa3 = respuestaFalsa3;
         this.respuestaCorrecta = respuestaCorrecta;
         this.juegoPertenece = juegoPertenece;
+        this.idDificultad = idDificultad;
     }
 
     public int getId() {
@@ -78,5 +80,13 @@ public class Pregunta {
         this.juegoPertenece = juegoPertenece;
     }
 
+    public int getIdDificultad() {
+        return idDificultad;
+    }
+
+    public void setIdDificultad(int idDificultad) {
+        this.idDificultad = idDificultad;
+    }
     
+        
 }
