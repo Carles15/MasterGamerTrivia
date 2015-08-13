@@ -9,11 +9,11 @@
     <property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
     <property name="connection.datasource">java:/comp/env/jdbc/MySQLDS</property>
     <property name="hibernate.show_sql">true</property>
-    <mapping resource="com/mastergamertrivia/game/persistencia/Pregunta.hbm.xml"/>
-    <mapping class="com.mastergamertrivia.game.dominio.Pregunta"/>
     <mapping resource="com/mastergamertrivia/game/persistencia/Juego.hbm.xml"/>
     <mapping class="com.mastergamertrivia.game.dominio.Juego"/>
     <mapping resource="com/mastergamertrivia/game/persistencia/Dificultad.hbm.xml"/>
     <mapping class="com.mastergamertrivia.game.dominio.Dificultad"/>
+    <mapping resource="com/mastergamertrivia/game/persistencia/WorldOfWarcraftQuestion.hbm.xml"/>
+    <mapping class="com.mastergamertrivia.game.dominio.WorldOfWarcraftQuestion"/>
   </session-factory>
 </hibernate-configuration>

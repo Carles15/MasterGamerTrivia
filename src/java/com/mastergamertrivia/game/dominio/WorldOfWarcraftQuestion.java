@@ -1,6 +1,7 @@
 package com.mastergamertrivia.game.dominio;
 
-public class Pregunta {
+
+public class WorldOfWarcraftQuestion {
     private int id;
     private String enunciado;
     private String respuestaFalsa1;
@@ -10,10 +11,10 @@ public class Pregunta {
     private int juegoPertenece;
     private int idDificultad;
 
-    public Pregunta() {
+    public WorldOfWarcraftQuestion() {
     }
 
-    public Pregunta(int id, String enunciado, String respuestaFalsa1, String respuestaFalsa2, String respuestaFalsa3, String respuestaCorrecta, int juegoPertenece, int idDificultad) {
+    public WorldOfWarcraftQuestion(int id, String enunciado, String respuestaFalsa1, String respuestaFalsa2, String respuestaFalsa3, String respuestaCorrecta, int juegoPertenece, int idDificultad) {
         this.id = id;
         this.enunciado = enunciado;
         this.respuestaFalsa1 = respuestaFalsa1;
@@ -88,5 +89,5 @@ public class Pregunta {
         this.idDificultad = idDificultad;
     }
     
-        
+    
 }

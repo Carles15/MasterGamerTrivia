@@ -1,8 +1,8 @@
 package com.mastergamertrivia.game.presentacion.controller.dominio;
 
 import com.mastergamertrivia.game.common.json.JsonConverter;
-import com.mastergamertrivia.game.dominio.Pregunta;
-import com.mastergamertrivia.game.persistencia.PreguntaDAO;
+import com.mastergamertrivia.game.dominio.WorldOfWarcraftQuestion;
+import com.mastergamertrivia.game.persistencia.WorldOfWarcraftQuestionDAO;
 import java.io.IOException;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
@@ -15,21 +15,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-public class PreguntaController {
+public class WorldOfWarcraftQuestionController {
     
     @Autowired
     JsonConverter jsonConverter;
     
     @Autowired
-    PreguntaDAO preguntaDAO;
+    WorldOfWarcraftQuestionDAO worldOfWarcraftQuestionDAO;
     
-    @RequestMapping(value = {"/pregunta/{id}"}, method = RequestMethod.GET)
+    @RequestMapping(value = {"/question/worldofwarcraft/{id}"}, method = RequestMethod.GET)
     public void get(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, @PathVariable("id") int id){
-        Pregunta pregunta = preguntaDAO.get(id);
+        WorldOfWarcraftQuestion worldOfWarcraftQuestion = worldOfWarcraftQuestionDAO.get(id);
         httpServletResponse.setContentType("application/json");
         
         try {
-            httpServletResponse.getWriter().println(jsonConverter.toJson(pregunta));
+            httpServletResponse.getWriter().println(jsonConverter.toJson(worldOfWarcraftQuestion));
             httpServletResponse.setStatus(HttpServletResponse.SC_OK);
         } catch (IOException ex) {
             try {
@@ -42,10 +42,10 @@ public class PreguntaController {
         }
     }
     
-    @RequestMapping(value = {"/pregunta/{id}"}, method = RequestMethod.DELETE)
+    @RequestMapping(value = {"/question/worldofwarcraft/{id}"}, method = RequestMethod.DELETE)
     public void delete(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, @PathVariable("id") int id){
         try {
-            preguntaDAO.delete(id);
+            worldOfWarcraftQuestionDAO.delete(id);
             httpServletResponse.setStatus(HttpServletResponse.SC_NO_CONTENT);
         } catch (Exception ex) {
             try {
@@ -58,14 +58,14 @@ public class PreguntaController {
         }
     }
     
-    @RequestMapping(value = {"/pregunta"}, method = RequestMethod.POST)
+    @RequestMapping(value = {"/question/worldofwarcraft"}, method = RequestMethod.POST)
     public void insert(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, @RequestBody String jsonEntrada){
         httpServletResponse.setContentType("application/json");
         
         try {
-            Pregunta pregunta = (Pregunta) jsonConverter.fromJson(jsonEntrada, Pregunta.class);
-            preguntaDAO.insert(pregunta);
-            httpServletResponse.getWriter().println(jsonConverter.toJson(preguntaDAO.get(pregunta.getId())));
+            WorldOfWarcraftQuestion worldOfWarcraftQuestion = (WorldOfWarcraftQuestion) jsonConverter.fromJson(jsonEntrada, WorldOfWarcraftQuestion.class);
+            worldOfWarcraftQuestionDAO.insert(worldOfWarcraftQuestion);
+            httpServletResponse.getWriter().println(jsonConverter.toJson(worldOfWarcraftQuestionDAO.get(worldOfWarcraftQuestion.getId())));
             httpServletResponse.setStatus(HttpServletResponse.SC_OK);
         } catch (Exception ex) {
             httpServletResponse.setContentType("application/json");
@@ -73,13 +73,13 @@ public class PreguntaController {
         }
     }
     
-    @RequestMapping(value = {"/pregunta"}, method = RequestMethod.PUT)
+    @RequestMapping(value = {"/question/worldofwarcraft"}, method = RequestMethod.PUT)
     public void update(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, @RequestBody String jsonEntrada){
         httpServletResponse.setContentType("application/json");
         try {
-            Pregunta pregunta = (Pregunta) jsonConverter.fromJson(jsonEntrada, Pregunta.class);
-            preguntaDAO.update(pregunta);
-            httpServletResponse.getWriter().println(jsonConverter.toJson(preguntaDAO.get(pregunta.getId())));
+            WorldOfWarcraftQuestion worldOfWarcraftQuestion = (WorldOfWarcraftQuestion) jsonConverter.fromJson(jsonEntrada, WorldOfWarcraftQuestion.class);
+            worldOfWarcraftQuestionDAO.update(worldOfWarcraftQuestion);
+            httpServletResponse.getWriter().println(jsonConverter.toJson(worldOfWarcraftQuestionDAO.get(worldOfWarcraftQuestion.getId())));
             httpServletResponse.setStatus(HttpServletResponse.SC_OK);
         } catch (Exception ex) {
             httpServletResponse.setContentType("application/json");
@@ -87,13 +87,12 @@ public class PreguntaController {
         }
     }
     
-    @RequestMapping(value = {"/preguntas"}, method = RequestMethod.GET)
+    @RequestMapping(value = {"/question/worldofwarcraft/all"}, method = RequestMethod.GET)
     public void findAll(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse){
         httpServletResponse.setContentType("application/json");
         try {
-            List<Pregunta> preguntas = preguntaDAO.findAll();
-            System.out.println(preguntaDAO.findAll());
-            httpServletResponse.getWriter().println(jsonConverter.toJson(preguntas));
+            List<WorldOfWarcraftQuestion> worldOfWarcraftQuestions = worldOfWarcraftQuestionDAO.findAll();
+            httpServletResponse.getWriter().println(jsonConverter.toJson(worldOfWarcraftQuestions));
             httpServletResponse.setStatus(HttpServletResponse.SC_OK);
         } catch (Exception ex) {
             try {
@@ -106,13 +105,12 @@ public class PreguntaController {
         }
     }
     
-    @RequestMapping(value = {"/preguntas/bateria"}, method = RequestMethod.GET)
-    public void batteryGenerator(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse){
+    @RequestMapping(value = {"/question/worldofwarcraft/quantity"}, method = RequestMethod.GET)
+    public void getQuantity(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse){
         httpServletResponse.setContentType("application/json");
         try {
-            List<Pregunta> questionsBattery = preguntaDAO.findAll();
-            System.out.println(preguntaDAO.findAll());
-            httpServletResponse.getWriter().println(jsonConverter.toJson(questionsBattery));
+            Long worldOFWarcraftQuestionsQuantity = worldOfWarcraftQuestionDAO.getTotalQuestions();
+            httpServletResponse.getWriter().println(jsonConverter.toJson(worldOFWarcraftQuestionsQuantity));
             httpServletResponse.setStatus(HttpServletResponse.SC_OK);
         } catch (Exception ex) {
             try {

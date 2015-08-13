@@ -11,7 +11,7 @@
   
     <bean class="com.mastergamertrivia.game.common.json.impl.JsonConverterImplJackson" />
     
-    <bean class="com.mastergamertrivia.game.persistencia.impl.hibernate.PreguntaDAOImplHibernate" />
     <bean class="com.mastergamertrivia.game.persistencia.impl.hibernate.JuegoDAOImplHibernate" />  
-    <bean class="com.mastergamertrivia.game.persistencia.impl.hibernate.DificultadDAOImplHibernate" />     
+    <bean class="com.mastergamertrivia.game.persistencia.impl.hibernate.DificultadDAOImplHibernate" />
+    <bean class="com.mastergamertrivia.game.persistencia.impl.hibernate.WorldOfWarcraftQuestionDAOImplHibernate" />     
 </beans>
