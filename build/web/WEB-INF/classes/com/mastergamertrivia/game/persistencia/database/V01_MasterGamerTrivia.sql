@@ -7,6 +7,11 @@ INSERT INTO pregunta VALUES (null,'¿De que raza son los héroes de Diablo 3?','
 INSERT INTO pregunta VALUES (null,'¿Como se llama el shooter de Blizzard?','Hiperwatch','Overcraft','Overseen','Overwatch',8,1);
 INSERT INTO pregunta VALUES (null,'¿Líder de los renegados?','Thrall','Anduin','Garrosh','Sylvanas',4,2);
 INSERT INTO pregunta VALUES (null,'¿Líder de los trolls lanza negra?','Thrall','Sylvanas','Rexxar','Voljin',1,2);
+INSERT INTO `mastergamertrivia`.`pregunta` (`id`, `enunciado`, `respuestaFalsa1`, `respuestaFalsa2`, `respuestaFalsa3`, `respuestaCorrecta`, `juegoPertenece`, `idDificultad`) VALUES ('8', '¿Bosque donde vive Link antes de iniciar su aventura en \"The Legend of Zelda: Ocarina of Time\"?', 'Bosque Kikoro', 'Boske Lotiri', 'Bosque Yokiri', 'Bosque Kokiri', '13', '1');
+INSERT INTO `mastergamertrivia`.`pregunta` (`id`, `enunciado`, `respuestaFalsa1`, `respuestaFalsa2`, `respuestaFalsa3`, `respuestaCorrecta`, `juegoPertenece`, `idDificultad`) VALUES ('9', '¿Que nombre recibe la moneda en \"The Legend of Zelda\"?', 'Trupia', 'Moneda de oro', 'Moneda de platino', 'Rupia', '13', '2');
+INSERT INTO `mastergamertrivia`.`pregunta` (`id`, `enunciado`, `respuestaFalsa1`, `respuestaFalsa2`, `respuestaFalsa3`, `respuestaCorrecta`, `juegoPertenece`, `idDificultad`) VALUES ('10', '¿Como se llama el protagonista de la saga \"The Legend of Zelda\"?', 'Zelda', 'Ganondorf', 'Navi', 'Link', '13', '1');
+INSERT INTO `mastergamertrivia`.`pregunta` (`id`, `enunciado`, `respuestaFalsa1`, `respuestaFalsa2`, `respuestaFalsa3`, `respuestaCorrecta`, `juegoPertenece`, `idDificultad`) VALUES ('11', '¿Cual es el mejor material para crear un pico en Minecraft?', 'Madera', 'Oro', 'Redstone', 'Diamante', '9', '2');
+
 
 -- Tabla juegos
 INSERT INTO `mastergamertrivia`.`juegos` (`id`, `nombre`, `descripcion`, `categoria`) VALUES ('1', 'World of warcraft', 'Juego de rol ambientando en el mundo de Warcraft', 'mmorpg');
@@ -28,7 +33,8 @@ INSERT INTO `mastergamertrivia`.`juego` (`id`, `nombre`, `descripcion`, `categor
 -- Consulta para generar Randoms desde MySQL
 -- SELECT id, juegoPertenece, FLOOR(RAND() * (SELECT COUNT(*) FROM pregunta)) AS 'random_number' FROM pregunta;
 -- Falta trabajarla no funciona del todo bien;
-
+-- SELECT * FROM pregunta WHERE id IN (SELECT FLOOR(RAND() * (SELECT COUNT(*) FROM pregunta)+1) AS 'random_number' FROM pregunta);
+-- Esa última consulta devuelve 8 resultados cuando hay 11 en total.
 
 -- Tabla dificultades
 INSERT INTO `mastergamertrivia`.`dificultad` (`id`, `nombre`, `descripcion`) VALUES ('1', 'noob', 'fácil');

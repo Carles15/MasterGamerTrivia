@@ -105,4 +105,23 @@ public class PreguntaController {
             }
         }
     }
+    
+    @RequestMapping(value = {"/preguntas/bateria"}, method = RequestMethod.GET)
+    public void batteryGenerator(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse){
+        httpServletResponse.setContentType("application/json");
+        try {
+            List<Pregunta> questionsBattery = preguntaDAO.findAll();
+            System.out.println(preguntaDAO.findAll());
+            httpServletResponse.getWriter().println(jsonConverter.toJson(questionsBattery));
+            httpServletResponse.setStatus(HttpServletResponse.SC_OK);
+        } catch (Exception ex) {
+            try {
+                ex.printStackTrace(httpServletResponse.getWriter());
+                httpServletResponse.setContentType("text/plain");
+                httpServletResponse.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+            } catch (IOException ex1) {
+                throw new RuntimeException(ex);
+            }
+        }
+    }
 }
