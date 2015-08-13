@@ -15,13 +15,11 @@ public class WorldOfWarcraftQuestionDAOImplHibernate extends GenericDAOImplHiber
     public Long getTotalQuestions() {
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         
-        
+        Criteria criteria = session.createCriteria(WorldOfWarcraftQuestion.class);
+        criteria.setProjection(Projections.rowCount());
+        Long worldOFWarcraftQuestionsQuantity = (Long) criteria.uniqueResult();
 
-    Criteria criteria = session.createCriteria(WorldOfWarcraftQuestion.class);
-    criteria.setProjection(Projections.rowCount());
-    Long worldOFWarcraftQuestionsQuantity = (Long) criteria.uniqueResult();
-    
-    return worldOFWarcraftQuestionsQuantity;
+        return worldOFWarcraftQuestionsQuantity;
     }
     
 }
