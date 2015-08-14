@@ -14,4 +14,6 @@
     <bean class="com.mastergamertrivia.game.persistencia.impl.hibernate.JuegoDAOImplHibernate" />  
     <bean class="com.mastergamertrivia.game.persistencia.impl.hibernate.DificultadDAOImplHibernate" />
     <bean class="com.mastergamertrivia.game.persistencia.impl.hibernate.WorldOfWarcraftQuestionDAOImplHibernate" />     
+    
+    <bean class="com.mastergamertrivia.game.presentacion.filter.spring.SimpleCORSFilter" name="simpleCorsFilter"/>
 </beans>
