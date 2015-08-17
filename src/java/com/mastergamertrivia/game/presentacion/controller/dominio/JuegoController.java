@@ -23,7 +23,7 @@ public class JuegoController {
     @Autowired
     JuegoDAO juegoDAO;
     
-    @RequestMapping(value = {"/juego/{id}"}, method = RequestMethod.GET)
+    @RequestMapping(value = {"/game/{id}"}, method = RequestMethod.GET)
     public void get(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, @PathVariable("id") int id){
         Juego juego = juegoDAO.get(id);
         httpServletResponse.setContentType("application/json");
@@ -42,7 +42,7 @@ public class JuegoController {
         }
     }
     
-    @RequestMapping(value = {"/juego/{id}"}, method = RequestMethod.DELETE)
+    @RequestMapping(value = {"/game/{id}"}, method = RequestMethod.DELETE)
     public void delete(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, @PathVariable("id") int id){
         try {
             juegoDAO.delete(id);
@@ -58,7 +58,7 @@ public class JuegoController {
         }
     }
     
-    @RequestMapping(value = {"/juego"}, method = RequestMethod.POST)
+    @RequestMapping(value = {"/game"}, method = RequestMethod.POST)
     public void insert(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, @RequestBody String jsonEntrada){
         httpServletResponse.setContentType("application/json");
         
@@ -73,7 +73,7 @@ public class JuegoController {
         }
     }
     
-    @RequestMapping(value = {"/juego"}, method = RequestMethod.PUT)
+    @RequestMapping(value = {"/game"}, method = RequestMethod.PUT)
     public void update(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, @RequestBody String jsonEntrada){
         httpServletResponse.setContentType("application/json");
         try {
@@ -87,7 +87,7 @@ public class JuegoController {
         }
     }
     
-    @RequestMapping(value = {"/juegos"}, method = RequestMethod.GET)
+    @RequestMapping(value = {"/game/all"}, method = RequestMethod.GET)
     public void findAll(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse){
         httpServletResponse.setContentType("application/json");
         try {

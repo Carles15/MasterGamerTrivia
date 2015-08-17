@@ -110,7 +110,8 @@ public class WorldOfWarcraftQuestionController {
         httpServletResponse.setContentType("application/json");
         try {
             Long worldOFWarcraftQuestionsQuantity = worldOfWarcraftQuestionDAO.getTotalQuestions();
-            httpServletResponse.getWriter().println(jsonConverter.toJson(worldOFWarcraftQuestionsQuantity));
+            String quantity = Long.toString(worldOFWarcraftQuestionsQuantity);
+            httpServletResponse.getWriter().println(jsonConverter.toJson(quantity));
             httpServletResponse.setStatus(HttpServletResponse.SC_OK);
         } catch (Exception ex) {
             try {
